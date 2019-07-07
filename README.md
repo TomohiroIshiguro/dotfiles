@@ -5,14 +5,12 @@ Githubで設定ファイルを管理することによって、ファイルの�
 
 ## 使い方
 
-1. 端末/仮想環境で、dotfilesリポジトリをcloneする
+1. 端末/仮想環境で、dotfilesリポジトリをcloneする   
    `$ git clone https://github.com/TomohiroIshiguro/dotfiles.git ~`
 
 1. ~/dotfiles/setup.shを実行する
    - 各設定ファイルのシンボリックリンクを作成
    - git submoduleでVundleをインストール
-
-1. vimを開いて `:BundleInstall` コマンドを実行する
    - Vundleの機能で Vimのプラグインをインストールする
 
 以上
