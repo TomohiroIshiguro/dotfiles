@@ -23,5 +23,5 @@ git submodule add -f https://github.com/VundleVim/Vundle.vim.git .vim/Vundle.vim
 vim +PluginInstall +qall
 
 # copy .vim/ftdetect
-mkdir -p ~/.vim/ftdetect/
-cp ~/dotfiles/.vim/ftdetect/* ~/.vim/ftdetect/
+mkdir -p $HOME/.vim/ftdetect/
+cp $HOME/dotfiles/.vim/ftdetect/* $HOME/.vim/ftdetect/
