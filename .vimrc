@@ -34,6 +34,10 @@ call vundle#begin()
 "------------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'w0rp/ale'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
+Plugin 'suan/vim-instant-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -60,3 +64,33 @@ let g:airline#extensions#ale#error_symbol = '>>'
 let g:airline#extensions#ale#warning_symbol = '--'
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
+
+" w0rp/ale
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+" 表示に関する設定
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+highlight link ALEErrorSign Tag
+highlight link ALEWarningSign StorageClass
+" Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:ale_linters = {
+\   'php': ['langserver','php -l'],
+\   'html': ['HTMLHint','prettier'],
+\   'css': ['csslint','prettier'],
+\   'javascript': ['eslint','prettier'],
+\   'java': ['checkstyle','google-java-format'],
+\   'kotlin': ['kotlint','ktlint'],
+\   'bash': ['shellcheck'],
+\   'dockerfile': ['dockerfile_lint','hadolint'],
+\   'json': ['jq','prettier'],
+\   'yaml': ['swaglinit','prettier'],
+\   'sql': ['sqlfmt','sqlint']
+\}
+

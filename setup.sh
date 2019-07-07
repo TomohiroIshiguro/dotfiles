@@ -18,3 +18,7 @@ done
 
 # Git submodule
 git submodule add -f https://github.com/VundleVim/Vundle.vim.git .vim/Vundle.vim
+
+# copy .vim/ftdetect
+mkdir -p ~/.vim/ftdetect/
+cp ~/dotfiles/.vim/ftdetect/* ~/.vim/ftdetect/
