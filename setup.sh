@@ -15,3 +15,6 @@ do
     echo "[Info] Generated: $file"
   fi
 done
+
+# Git submodule
+git submodule add -f https://github.com/VundleVim/Vundle.vim.git .vim/Vundle.vim
