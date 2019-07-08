@@ -1,11 +1,8 @@
 set nocompatible
 
-set rtp+=~/dotfiles/.vim/Vundle.vim
-
-filetype on
-
 " 表示
 " ----------------------------- 
+filetype on
 syntax on
 
 function! NumberToggle()
@@ -25,6 +22,7 @@ set wrapscan
 
 " Vundle 
 "------------------------------
+set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 
 "Plugin 'VundleVim/Vundle.vim'
