@@ -21,7 +21,7 @@ do
 done
 
 # Git submodule
-git submodule add -f https://github.com/VundleVim/Vundle.vim.git .vim/Vundle.vim
+git submodule update
 
 # install Vim plugins
 vim +PluginInstall +qall
