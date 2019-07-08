@@ -1,10 +1,14 @@
 #!/bin/bash
 
 # make symbolic links
-DOT_FILES=( .vimrc )
-
-for file in ${DOT_FILES[@]}
+for file in .??*
 do
+  if [ -d $file ]; then
+    continue
+  fi
+  [[ "$file" == ".DS_Store" ]] && continue
+  [[ "$file" == ".gitignore" ]] && continue
+  [[ "$file" == ".gitmodules" ]] && continue
   if [ -a $HOME/$file ]; then
     rm $HOME/$file.copy_failed
     ln -s $HOME/dotfiles/$file $HOME/$file.copy_failed
