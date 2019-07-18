@@ -1,35 +1,49 @@
 set nocompatible
 
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+set expandtab
+
+"------------------------------
 " 表示
 " ----------------------------- 
 filetype on
 syntax on
+let loaded_matchparen = 1
 
 function! NumberToggle()
   if(&rnu == 1)
     set nornu
+    set nocursorline
   else
     set rnu
+    set cursorline
   endif
 endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
 
+set pumheight=10
+
+
+"------------------------------
 " 検索設定
 "------------------------------
 set ignorecase
 set smartcase
 set wrapscan
+set hlsearch
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Vundle 
+
+"------------------------------
+" Vundle - manage plugins
 "------------------------------
 set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 
 "Plugin 'VundleVim/Vundle.vim'
 
-" 導入したいプラグインを以下に列挙
-" Plugin '[Github Author]/[Github repo]' の形式で記入
-"------------------------------
+" --- format: Plugin '[Github Author]/[Github repo]'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
@@ -40,9 +54,7 @@ Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 filetype plugin indent on
 
-" その他のカスタム設定を以下に書く
-"------------------------------
-
+" --- settings of plugins 
 " scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
