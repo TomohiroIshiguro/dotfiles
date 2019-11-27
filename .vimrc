@@ -1,12 +1,10 @@
-set nocompatible
-
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 set expandtab
 
 "------------------------------
 " 表示
-" ----------------------------- 
+
 filetype on
 syntax on
 let loaded_matchparen = 1
@@ -41,7 +39,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 
-"Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " --- format: Plugin '[Github Author]/[Github repo]'
 Plugin 'scrooloose/nerdtree'
@@ -49,7 +47,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'thosakwe/vim-flutter'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'neoclide/coc.nvim'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 call vundle#end()
 filetype plugin indent on
@@ -75,6 +74,9 @@ let g:airline#extensions#ale#warning_symbol = '--'
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
 
+" suan/vim-instant-markdown
+let g:instant_markdown_autostart = 1
+
 " w0rp/ale
 " 保存時のみ実行する
 let g:ale_lint_on_text_changed = 0
@@ -91,16 +93,15 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\   'php': ['langserver','php -l'],
-\   'html': ['HTMLHint','prettier'],
-\   'css': ['csslint','prettier'],
-\   'javascript': ['eslint','prettier'],
-\   'java': ['checkstyle','google-java-format'],
-\   'kotlin': ['kotlint','ktlint'],
-\   'bash': ['shellcheck'],
-\   'dockerfile': ['dockerfile_lint','hadolint'],
-\   'json': ['jq','prettier'],
-\   'yaml': ['swaglinit','prettier'],
-\   'sql': ['sqlfmt','sqlint']
 \}
 
+" coc-nvim
+imap <C-;> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" dart-vim-plugins
+let g:dart_format_on_save = 1
+let g:flutter_hot_reload_on_save = 1
