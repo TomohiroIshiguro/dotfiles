@@ -93,7 +93,16 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\}
+      \ 'html': ['tidy'],
+      \ 'css': ['stylelint'],
+      \ 'javascript': ['eslint'],
+      \ }
+let g:ale_fixers = {
+      \ 'html': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'javascript': ['prettier'],
+      \ }
+let g:ale_fix_on_save = 1
 
 " coc-nvim
 imap <C-;> <Plug>(coc-snippets-expand)
@@ -105,3 +114,4 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " dart-vim-plugins
 let g:dart_format_on_save = 1
 let g:flutter_hot_reload_on_save = 1
+
