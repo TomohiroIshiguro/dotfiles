@@ -45,10 +45,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'thosakwe/vim-flutter'
-Plugin 'neoclide/coc.nvim'
-Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 call vundle#end()
 filetype plugin indent on
