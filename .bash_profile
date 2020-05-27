@@ -25,7 +25,7 @@ alias ide="sh ide.sh"
 # tmux setting
 # ----------------------------------------
 
+tmux source $DOT_FILES/.tmux.conf
 if [ $SHLVL = 1 ]; then
-  tmux source $HOME/dotfiles/.tmux.conf
   tmux
 fi
