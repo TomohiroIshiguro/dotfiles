@@ -1,27 +1,11 @@
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
-set expandtab
-set nu
 
 "------------------------------
-" 表示
+" 画面操作
+"------------------------------
 
-filetype on
-syntax on
-let loaded_matchparen = 1
-
-function! NumberToggle()
-  if(&rnu == 1)
-    set nornu
-    set nocursorline
-  else
-    set rnu
-    set cursorline
-  endif
-endfunc
-nnoremap <C-l> :call NumberToggle()<cr>
-
-set pumheight=10
+set expandtab
 
 " Split window
 nmap ss :split<Return><C-w>w
@@ -41,6 +25,28 @@ nmap <C-w><left> <C-w><
 nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
+
+"------------------------------
+" 表示
+"------------------------------
+
+filetype on
+syntax on
+set nu
+let loaded_matchparen = 1
+
+function! NumberToggle()
+  if(&rnu == 1)
+    set nornu
+    set nocursorline
+  else
+    set rnu
+    set cursorline
+  endif
+endfunc
+nnoremap <C-l> :call NumberToggle()<cr>
+
+set pumheight=10
 
 "------------------------------
 " 検索設定
