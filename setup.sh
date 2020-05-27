@@ -21,6 +21,7 @@ do
 done
 
 # Git submodule
+git submodule init
 git submodule update
 
 # install Vim plugins
@@ -29,3 +30,4 @@ vim +PluginInstall +qall
 # copy .vim/ftdetect
 mkdir -p $HOME/.vim/ftdetect/
 cp $HOME/dotfiles/.vim/ftdetect/* $HOME/.vim/ftdetect/
+
