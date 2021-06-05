@@ -47,6 +47,9 @@ endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
 
 set pumheight=10
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 "------------------------------
 " 検索設定
