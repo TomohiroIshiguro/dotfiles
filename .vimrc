@@ -1,17 +1,14 @@
-set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis,euc-jp
+set fileformats=unix,dos,mac
 
+set wildmenu
 set belloff=all
 
 "------------------------------
-" 表示
+" 表示設定
 "------------------------------
 
-filetype on
-syntax on
-set nu
-let loaded_matchparen = 1
-
+set number
 function! NumberToggle()
   if(&rnu == 1)
     set nornu
@@ -23,21 +20,9 @@ function! NumberToggle()
 endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
 
-set pumheight=10
-
 "------------------------------
 " 画面操作
 "------------------------------
-
-filetype plugin indent on
-set expandtab
-set tabstop=2
-set softtabstop=2
-set autoindent
-set smartindent
-set shiftwidth=2
-
-set clipboard=unnamed
 
 " Split window
 nmap ss :split<Return><C-w>w
@@ -53,20 +38,43 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 " Resize window
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+"------------------------------
+" エディタ設定
+"------------------------------
+
+filetype plugin indent on
+syntax on
+
+autocmd BufWritePre * :%s/\s\+$//ge
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
+
+" 変換候補の最大表示数
+set pumheight=10
+
+set clipboard+=unnamed
+let loaded_matchparen = 1
 
 "------------------------------
 " 検索設定
 "------------------------------
+
 set ignorecase
 set smartcase
 set wrapscan
+set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
 
 "------------------------------
 " Vundle - manage plugins
@@ -86,7 +94,7 @@ Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
 
-" --- settings of plugins 
+" --- settings of plugins
 " scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
