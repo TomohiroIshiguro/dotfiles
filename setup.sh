@@ -3,21 +3,19 @@
 # make symbolic links
 for file in .??*
 do
-  if [ -d $file ]; then
+  if [ -d "$file" ]; then
     continue
   fi
   [[ "$file" == ".DS_Store" ]] && continue
   [[ "$file" == ".gitignore" ]] && continue
   [[ "$file" == ".gitmodules" ]] && continue
-  if [ -a $HOME/$file ]; then
-    rm $HOME/$file.copy_failed
-    ln -s $HOME/dotfiles/$file $HOME/$file.copy_failed
+  if [ -a "$HOME/$file" ]; then
     echo "[Alert] The file already exists: $file"
-    echo " - Edit $file and remove $file.copy_failed."
+    mv "$HOME/$file" "$HOME/$file."`date "+%Y%m%d%H%M%S"`bk
   else
-    ln -s $HOME/dotfiles/$file $HOME/$file
     echo "[Info] Generated: $file"
   fi
+  ln -s "$HOME/dotfiles/$file" "$HOME/$file"
 done
 
 # Git submodule
@@ -28,6 +26,6 @@ git submodule update
 vim +PluginInstall +qall
 
 # copy .vim/ftdetect
-mkdir -p $HOME/.vim/ftdetect/
-cp $HOME/dotfiles/.vim/ftdetect/* $HOME/.vim/ftdetect/
+mkdir -p "$HOME/.vim/ftdetect/"
+cp "$HOME/dotfiles/.vim/ftdetect/*" "$HOME/.vim/ftdetect/"
 
