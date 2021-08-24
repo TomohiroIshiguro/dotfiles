@@ -9,7 +9,10 @@ do
   [[ "$file" == ".DS_Store" ]] && continue
   [[ "$file" == ".gitignore" ]] && continue
   [[ "$file" == ".gitmodules" ]] && continue
-  if [ -a "$HOME/$file" ]; then
+  if [ ! -e "$HOME/dotfiles/$file" ]; then
+    continue
+  fi
+  if [ -e "$HOME/$file" ]; then
     echo "[Alert] The file already exists: $file"
     mv "$HOME/$file" "$HOME/$file."`date "+%Y%m%d%H%M%S"`bk
   else
