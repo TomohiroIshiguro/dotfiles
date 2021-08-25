@@ -11,6 +11,7 @@ set belloff=all
 filetype plugin indent on
 syntax on
 
+set t_Co=256
 colorscheme iceberg
 
 set number

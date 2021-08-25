@@ -12,11 +12,11 @@ do
   if [ ! -e "$HOME/dotfiles/$file" ]; then
     continue
   fi
-  if [ -e "$HOME/$file" ]; then
+  if [ ! -e "$HOME/$file" ]; then
+    echo "[Info] Generated: $file"
+  else
     echo "[Alert] The file already exists: $file"
     mv "$HOME/$file" "$HOME/$file."`date "+%Y%m%d%H%M%S"`bk
-  else
-    echo "[Info] Generated: $file"
   fi
   ln -s "$HOME/dotfiles/$file" "$HOME/$file"
 done
@@ -29,7 +29,7 @@ git submodule update
 vim +PluginInstall +qall
 
 # copy files
-ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors" "$HOME/.vim/"
-ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors" "$HOME/.config/nvim/"
+mkdir -p "$HOME/.vim/colors"
+ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
 ln -s "$HOME/dotfiles/.vim/ftdetect" "$HOME/.vim"
 
