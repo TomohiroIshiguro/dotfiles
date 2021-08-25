@@ -8,6 +8,11 @@ set belloff=all
 " 表示設定
 "------------------------------
 
+filetype plugin indent on
+syntax on
+
+colorscheme iceberg
+
 set number
 function! NumberToggle()
   if(&rnu == 1)
@@ -47,9 +52,6 @@ nnoremap <S-Down>  <C-w>+<CR>
 " エディタ設定
 "------------------------------
 
-filetype plugin indent on
-syntax on
-
 autocmd BufWritePre * :%s/\s\+$//ge
 
 set expandtab
@@ -87,6 +89,7 @@ Plugin 'VundleVim/Vundle.vim'
 " --- format: Plugin '[Github Author]/[Github repo]'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'cocopon/iceberg.vim'
 "Plugin 'w0rp/ale'
 "Plugin 'neoclide/coc.nvim'
 "Plugin 'dart-lang/dart-vim-plugin'

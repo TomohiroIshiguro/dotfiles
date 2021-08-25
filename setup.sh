@@ -28,7 +28,8 @@ git submodule update
 # install Vim plugins
 vim +PluginInstall +qall
 
-# copy .vim/ftdetect
-mkdir -p "$HOME/.vim/ftdetect/"
-cp "$HOME/dotfiles/.vim/ftdetect/*" "$HOME/.vim/ftdetect/"
+# copy files
+ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors" "$HOME/.vim/"
+ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors" "$HOME/.config/nvim/"
+ln -s "$HOME/dotfiles/.vim/ftdetect" "$HOME/.vim"
 
