@@ -11,8 +11,9 @@ set belloff=all
 filetype plugin indent on
 syntax on
 
-set t_Co=256
-colorscheme iceberg
+"set t_Co=256
+"colorscheme iceberg
+colorscheme desert
 
 set number
 function! NumberToggle()
