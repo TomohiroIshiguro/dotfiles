@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOT=dotfiles
+
 # make symbolic links
 for file in .??*
 do
@@ -9,7 +11,7 @@ do
   [[ "$file" == ".DS_Store" ]] && continue
   [[ "$file" == ".gitignore" ]] && continue
   [[ "$file" == ".gitmodules" ]] && continue
-  if [ ! -e "$HOME/dotfiles/$file" ]; then
+  if [ ! -e "$HOME/$DOT/$file" ]; then
     continue
   fi
   if [ ! -e "$HOME/$file" ]; then
@@ -18,7 +20,7 @@ do
     echo "[Alert] The file already exists: $file"
     mv "$HOME/$file" "$HOME/$file."`date "+%Y%m%d%H%M%S"`bk
   fi
-  ln -s "$HOME/dotfiles/$file" "$HOME/$file"
+  ln -s "$HOME/$DOT/$file" "$HOME/$file"
 done
 
 # Git submodule
@@ -30,6 +32,5 @@ vim +PluginInstall +qall
 
 # copy files
 mkdir -p "$HOME/.vim/colors"
-ln -s "$HOME/dotfiles/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
-ln -s "$HOME/dotfiles/.vim/ftdetect" "$HOME/.vim"
-
+ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
+ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
