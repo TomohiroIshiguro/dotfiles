@@ -20,9 +20,11 @@ function! NumberToggle()
   if(&rnu == 1)
     set nornu
     set nocursorline
+    set nocursorcolumn
   else
     set rnu
     set cursorline
+    set cursorcolumn
   endif
 endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
@@ -68,6 +70,12 @@ set pumheight=10
 
 set clipboard+=unnamed
 let loaded_matchparen = 1
+
+if has('persistent_undo')
+  let undo_path = "$HOME/.vim/undo"
+  exe 'set undodir=' .. undo_path
+	set undofile
+endif
 
 "------------------------------
 " 検索設定

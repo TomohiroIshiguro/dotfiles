@@ -2,6 +2,9 @@
 
 DOT=dotfiles
 
+# vim settings
+mkdir -p "$HOME/.vim/undo"
+
 # make symbolic links
 for file in .??*
 do
