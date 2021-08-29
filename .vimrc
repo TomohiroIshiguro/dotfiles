@@ -92,6 +92,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
+Plugin 'sheerun/vim-polyglot'
+Plugin 'cohama/lexima.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
 Plugin 'prabirshrestha/vim-lsp'
