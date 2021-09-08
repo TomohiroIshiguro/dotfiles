@@ -100,13 +100,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
-Plugin 'sheerun/vim-polyglot'
-Plugin 'cohama/lexima.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'cohama/lexima.vim'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
-"Plugin 'neoclide/coc.nvim'
+"Plugin 'mattn/sonictemplate-vim'
 "Plugin 'dart-lang/dart-vim-plugin'
 "Plugin 'thosakwe/vim-flutter'
 
@@ -148,19 +149,20 @@ highlight link ALEWarningSign StorageClass
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-"let g:ale_linters = {
-"      \ 'javascript': ['eslint'],
-"      \ }
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'go': ['gopls'],
+      \ }
 let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
+      \ 'javascript': ['prettier','eslint'],
       \ }
 
-"" coc-nvim
-"imap <C-;> <Plug>(coc-snippets-expand)
-"vmap <C-j> <Plug>(coc-snippets-select)
-"let g:coc_snippet_next = '<c-j>'
-"let g:coc_snippet_prev = '<c-k>'
-"imap <C-j> <Plug>(coc-snippets-expand-jump)
+" coc-nvim
+imap <C-;> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<C-n>'
+let g:coc_snippet_prev = '<C-p>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 "" dart-vim-plugins
 "let g:dart_format_on_save = 1
