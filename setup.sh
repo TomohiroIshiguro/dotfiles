@@ -37,3 +37,4 @@ vim +PluginInstall +qall
 mkdir -p "$HOME/.vim/colors"
 ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
 ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
+ln -s "$HOME/$DOT/.vim/template" "$HOME/.vim"

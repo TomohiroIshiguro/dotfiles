@@ -107,7 +107,7 @@ Plugin 'w0rp/ale'
 Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
-"Plugin 'mattn/sonictemplate-vim'
+Plugin 'mattn/sonictemplate-vim'
 "Plugin 'dart-lang/dart-vim-plugin'
 "Plugin 'thosakwe/vim-flutter'
 
@@ -169,3 +169,6 @@ let g:coc_disable_startup_warning = 1
 "" dart-vim-plugins
 "let g:dart_format_on_save = 1
 "let g:flutter_hot_reload_on_save = 1
+
+" mattn/sonictemplate
+let g:sonictemplate_vim_template_dir = ['~/.vim/template']
