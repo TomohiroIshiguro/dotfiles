@@ -164,6 +164,8 @@ let g:coc_snippet_next = '<C-n>'
 let g:coc_snippet_prev = '<C-p>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+let g:coc_disable_startup_warning = 1
+
 "" dart-vim-plugins
 "let g:dart_format_on_save = 1
 "let g:flutter_hot_reload_on_save = 1
