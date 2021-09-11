@@ -9,7 +9,7 @@ test -f ~/.bashrc && . ~/.bashrc
 # ----------------------------------------
 
 # For Flutter
-ANDROID_HOME="$HOME/AppData/Local/Android/Sdk/"
+ANDROID_HOME="$HOME/AppData/Local/Android/Sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
 FLUTTER_HOME="$HOME/work/SDKs/flutter"
