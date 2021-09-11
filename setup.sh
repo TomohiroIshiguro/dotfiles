@@ -5,6 +5,13 @@ DOT=dotfiles
 # vim settings
 mkdir -p "$HOME/.vim/undo"
 
+# Git submodule
+git submodule init
+git submodule update
+
+# install Vim plugins
+vim +PluginInstall +qall
+
 # make symbolic links
 for file in .??*
 do
@@ -26,14 +33,6 @@ do
   ln -s "$HOME/$DOT/$file" "$HOME/$file"
 done
 
-# Git submodule
-git submodule init
-git submodule update
-
-# install Vim plugins
-vim +PluginInstall +qall
-
-# copy files
 mkdir -p "$HOME/.vim/colors"
 ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
 ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
