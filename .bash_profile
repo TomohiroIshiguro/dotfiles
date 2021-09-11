@@ -9,6 +9,8 @@ test -f ~/.bashrc && . ~/.bashrc
 # ----------------------------------------
 
 # For Flutter
+JAVA_HOME="$HOME/work/SDKs/java/jdk-16.0.2"
+
 ANDROID_HOME="$HOME/AppData/Local/Android/Sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
@@ -17,7 +19,7 @@ DART_HOME="$FLUTTER_HOME/bin/cache/dart-sdk"
 
 # common
 DOT_FILES="$HOME/dotfiles"
-export PATH="$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$ANDROID_HOME/tools/bin:$DOT_FILES"
+export PATH="$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$ANDROID_HOME/tools/bin:$JAVA_HOME/bin:$DOT_FILES"
 
 # ----------------------------------------
 # tmux setting

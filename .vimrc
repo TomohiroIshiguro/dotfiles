@@ -95,8 +95,7 @@ set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-
-" --- format: Plugin '[Github Author]/[Github repo]'
+"---
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
@@ -108,12 +107,11 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
 Plugin 'mattn/sonictemplate-vim'
-"Plugin 'dart-lang/dart-vim-plugin'
-"Plugin 'thosakwe/vim-flutter'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
 
 call vundle#end()
 
-" --- settings of plugins
 " scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -166,9 +164,9 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_disable_startup_warning = 1
 
-"" dart-vim-plugins
-"let g:dart_format_on_save = 1
-"let g:flutter_hot_reload_on_save = 1
-
 " mattn/sonictemplate
 let g:sonictemplate_vim_template_dir = ['~/.vim/template']
+
+" dart-vim-plugins
+let g:dart_format_on_save = 1
+let g:flutter_hot_reload_on_save = 1
