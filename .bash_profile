@@ -5,30 +5,27 @@ test -f ~/.profile && . ~/.profile
 test -f ~/.bashrc && . ~/.bashrc
 
 # ----------------------------------------
-# Environment variables
+# Path
 # ----------------------------------------
 
-# PATH settings
-# --------------------
+# For Flutter
+ANDROID_HOME="$HOME/AppData/Local/Android/Sdk/"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
-DOT_FILES="$HOME/dotfiles"
-ANDROID_HOME="$HOME/work/SDKs/android"
 FLUTTER_HOME="$HOME/work/SDKs/flutter"
 DART_HOME="$FLUTTER_HOME/bin/cache/dart-sdk"
 
+# common
+DOT_FILES="$HOME/dotfiles"
 export PATH="$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$ANDROID_HOME/tools/bin:$DOT_FILES"
-
-# User specific variables
-# --------------------
-export ANDROID_SDK_ROOT="$ANDROID_HOME"
-
-alias ic="ibmcloud"
-alias ide="sh ide.sh"
 
 # ----------------------------------------
 # tmux setting
 # ----------------------------------------
-test -f tmux && tmux source $DOT_FILES/.tmux.conf
+
+tmux source $DOT_FILES/.tmux.conf
 if [ $SHLVL = 1 ]; then
-  test -f tmux && tmux
+  tmux
 fi
+
+alias ide="sh ide.sh"
