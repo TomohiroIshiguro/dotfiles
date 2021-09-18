@@ -32,3 +32,5 @@ fi
 
 alias ide="sh '$DOT_FILES/commands/ide.sh'"
 alias update="sh '$DOT_FILES/commands/update.sh'"
+alias update-repo="sh '$DOT_FILES/commands/update.sh'"
+alias update_repo="sh '$DOT_FILES/commands/update.sh'"
