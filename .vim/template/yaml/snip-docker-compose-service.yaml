@@ -1,0 +1,16 @@
+  service:
+    container_name: service
+    restart: always
+    command: 'node run'
+
+    image: mysql:8.0.19
+
+    build: .
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      - VARIABLE=example
+    tty: true

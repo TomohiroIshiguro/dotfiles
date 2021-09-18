@@ -1,0 +1,11 @@
+    volumes:
+      - ./service:/usr/src/app
+
+    volumes:
+      - /usr/src/app/node_modules
+
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:

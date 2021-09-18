@@ -1,0 +1,11 @@
+    depends_on:
+      - container
+
+    networks:
+      - network
+
+    ports:
+      - 3000:3000
+
+networks:
+  network:
