@@ -30,4 +30,5 @@ if [ $SHLVL = 1 ]; then
   tmux
 fi
 
-alias ide="sh ide.sh"
+alias ide="sh '$DOT_FILES/commands/ide.sh'"
+alias update="sh '$DOT_FILES/commands/update.sh'"
