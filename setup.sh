@@ -15,15 +15,15 @@ vim +PluginInstall +qall
 # make symbolic links
 for file in .??*
 do
-  if [ -d "$file" ]; then
-    continue
-  fi
+  # ディレクトリはスキップする
+  [ -d "$file" ] && continue
+  # dotfiles に無いファイルはスキップする
+  [ ! -e "$HOME/$DOT/$file" ] && continue
+  # 特定のファイルはスキップする
   [[ "$file" == ".DS_Store" ]] && continue
   [[ "$file" == ".gitignore" ]] && continue
   [[ "$file" == ".gitmodules" ]] && continue
-  if [ ! -e "$HOME/$DOT/$file" ]; then
-    continue
-  fi
+  # これ以降。設定ファイルのシンボリックリンクを作る
   if [ ! -e "$HOME/$file" ]; then
     echo "[Info] Generated: $file"
   else
@@ -34,6 +34,6 @@ do
 done
 
 mkdir -p "$HOME/.vim/colors"
-ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
-ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
-ln -s "$HOME/$DOT/.vim/template" "$HOME/.vim"
+[ ! -e "$HOME/.vim/colors/iceberg.vim" ] && ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
+[ ! -e "$HOME/.vim/ftdetect" ] && ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
+[ ! -e "$HOME/.vim/template" ] && ln -s "$HOME/$DOT/.vim/template" "$HOME/.vim"

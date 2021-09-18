@@ -25,7 +25,7 @@ export PATH="$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$ANDROID_HOME/tools/bin:$JAV
 # tmux setting
 # ----------------------------------------
 
-tmux source $DOT_FILES/.tmux.conf
+tmux source "$DOT_FILES/.tmux.conf"
 if [ $SHLVL = 1 ]; then
   tmux
 fi
