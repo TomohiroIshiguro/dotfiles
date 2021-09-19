@@ -6,11 +6,9 @@ DOT=dotfiles
 mkdir -p "$HOME/.vim/undo"
 
 # Git submodule
+cd "$HOME/$DOT"
 git submodule init
 git submodule update
-
-# install Vim plugins
-vim +PluginInstall +qall
 
 # make symbolic links
 for file in .??*
@@ -32,6 +30,9 @@ do
   fi
   ln -s "$HOME/$DOT/$file" "$HOME/$file"
 done
+
+# install Vim plugins
+vim +PluginInstall +qall
 
 mkdir -p "$HOME/.vim/colors"
 [ ! -e "$HOME/.vim/colors/iceberg.vim" ] && ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"

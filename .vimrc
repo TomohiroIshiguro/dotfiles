@@ -29,6 +29,8 @@ function! NumberToggle()
 endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
 
+set cmdheight=2
+
 "------------------------------
 " 画面操作
 "------------------------------
@@ -102,7 +104,7 @@ Plugin 'cocopon/iceberg.vim' "theme
 Plugin 'airblade/vim-gitgutter'
 Plugin 'cohama/lexima.vim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
@@ -131,10 +133,33 @@ let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {}
 
 " w0rp/ale
-" 保存時のみ実行する
+" -- Linting
 let g:ale_lint_on_text_changed = 0
+let g:ale_linters = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['eslint'],
+      \ 'go': ['gopls'],
+      \ }
+" -- Fixing
 let g:ale_fix_on_save = 1
-" 表示に関する設定
+let g:ale_fixers = {
+      \ 'javascript': ['prettier','eslint'],
+      \ }
+" -- Completion
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+" -- Go To Definition
+" :ALEGoToDefinition
+" -- Find Refetences
+" :FLEFindReferences
+" -- Hovering
+" -- Symbol Search
+" :ALESymbolSearch
+" -- Refactoring: Rename, Actions
+" :ALERename
+" :ALECodeAction
+" -- 表示に関する設定
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let airline#extensions#ale#show_line_numbers = 1
@@ -143,26 +168,21 @@ let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
 highlight link ALEErrorSign Tag
 highlight link ALEWarningSign StorageClass
-" Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ 'go': ['gopls'],
-      \ }
-let g:ale_fixers = {
-      \ 'javascript': ['prettier','eslint'],
-      \ }
-
 " coc-nvim
+set hidden
+set nobackup
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+let g:coc_disable_startup_warning = 1
 imap <C-;> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<C-n>'
 let g:coc_snippet_prev = '<C-p>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-let g:coc_disable_startup_warning = 1
 
 " mattn/sonictemplate
 let g:sonictemplate_vim_template_dir = ['~/.vim/template']
