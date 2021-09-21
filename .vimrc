@@ -29,8 +29,6 @@ function! NumberToggle()
 endfunc
 nnoremap <C-l> :call NumberToggle()<cr>
 
-set cmdheight=2
-
 "------------------------------
 " 画面操作
 "------------------------------
@@ -58,8 +56,26 @@ nnoremap <S-Down>  <C-w>+<CR>
 " エディタ設定
 "------------------------------
 
+" バックアップ / Undo
+set nobackup
+set nowritebackup
+
+if has('persistent_undo')
+  let undo_path = "$HOME/.vim/undo"
+  exe 'set undodir=' .. undo_path
+	set undofile
+endif
+
+set updatetime=300
+
+" バッファ
+set hidden
 autocmd BufWritePre * :%s/\s\+$//ge
 
+" ヤンク / クリップボード
+set clipboard+=unnamed
+
+" インデント
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -67,17 +83,14 @@ set softtabstop=2
 set autoindent
 set smartindent
 
+let loaded_matchparen = 1
+
 " 変換候補の最大表示数
 set pumheight=10
 
-set clipboard+=unnamed
-let loaded_matchparen = 1
+set shortmess+=c
 
-if has('persistent_undo')
-  let undo_path = "$HOME/.vim/undo"
-  exe 'set undodir=' .. undo_path
-	set undofile
-endif
+"set cmdheight=2
 
 "------------------------------
 " 検索設定
@@ -121,16 +134,36 @@ let g:NERDTreeShowHidden=1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " vim-airline/vim-airline-themes
+" -- status bar
 set laststatus=2
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 let g:airline_section_c = '%t'
 let g:airline_section_x = '%{&filetype}'
+let g:airline_section_z = '%l/%L:%v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#wordcount#enabled = 0
+" -- tab line
+set showtabline=2
+let g:airline#extensions#tabline#enabled = 1
+nmap <C-p> :bp<CR>
+nmap <C-n> :bn<CR>
+nmap <C-d> :bd<CR>
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+  \ '0': '0 ',
+  \ '1': '1 ',
+  \ '2': '2 ',
+  \ '3': '3 ',
+  \ '4': '4 ',
+  \ '5': '5 ',
+  \ '6': '6 ',
+  \ '7': '7 ',
+  \ '8': '8 ',
+  \ '9': '9 '
+  \}
 
 " w0rp/ale
 " -- Linting
@@ -162,27 +195,30 @@ let g:ale_completion_autoimport = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-let airline#extensions#ale#show_line_numbers = 1
-let g:airline#extensions#ale#open_lnum_symbol = '('
-let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
 highlight link ALEErrorSign Tag
 highlight link ALEWarningSign StorageClass
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" -- status bar
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#error_symbol = 'E:'
+let g:airline#extensions#ale#warning_symbol = 'W:'
+let g:airline#extensions#ale#show_line_numbers = 1
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
 
 " coc-nvim
-set hidden
-set nobackup
-set nowritebackup
-set updatetime=300
-set shortmess+=c
 let g:coc_disable_startup_warning = 1
 imap <C-;> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<C-n>'
 let g:coc_snippet_prev = '<C-p>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+" -- status bar
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
 
 " mattn/sonictemplate
 let g:sonictemplate_vim_template_dir = ['~/.vim/template']
