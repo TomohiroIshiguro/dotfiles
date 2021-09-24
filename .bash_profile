@@ -30,7 +30,14 @@ if [ $SHLVL = 1 ]; then
   tmux
 fi
 
-alias ide="sh '$DOT_FILES/commands/ide.sh'"
+# ----------------------------------------
+# Command Alias
+# ----------------------------------------
+
+# shell script
 alias update="sh '$DOT_FILES/commands/update.sh'"
 alias update-repo="sh '$DOT_FILES/commands/update.sh'"
 alias update_repo="sh '$DOT_FILES/commands/update.sh'"
+
+# tmux
+alias ide="sh '$DOT_FILES/commands/ide.sh'"
