@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DOT=dotfiles
 
@@ -15,12 +15,10 @@ for file in .??*
 do
   # ディレクトリはスキップする
   [ -d "$file" ] && continue
-  # dotfiles に無いファイルはスキップする
-  [ ! -e "$HOME/$DOT/$file" ] && continue
   # 特定のファイルはスキップする
-  [[ "$file" == ".DS_Store" ]] && continue
-  [[ "$file" == ".gitignore" ]] && continue
-  [[ "$file" == ".gitmodules" ]] && continue
+  [ "$file" = ".DS_Store" ] && continue
+  [ "$file" = ".gitignore" ] && continue
+  [ "$file" = ".gitmodules" ] && continue
   # これ以降。設定ファイルのシンボリックリンクを作る
   if [ ! -e "$HOME/$file" ]; then
     echo "[Info] Generated: $file"
