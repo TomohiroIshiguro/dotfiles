@@ -137,9 +137,11 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " -- status bar
 set laststatus=2
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+let g:airline_section_a = airline#section#create(['mode', 'crypt'])
+let g:airline_section_b = ''
 let g:airline_section_c = '%t'
 let g:airline_section_x = '%{&filetype}'
-let g:airline_section_z = '%l/%L:%v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+let g:airline_section_z = '[%l/%L] %v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {}
