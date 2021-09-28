@@ -4,6 +4,9 @@
 test -f ~/.profile && . ~/.profile
 test -f ~/.bashrc && . ~/.bashrc
 
+# Prompt
+export PS1="\[\e[0;35m\][\h] \$MSYSTEM\[\e[0m\] \[\e[0;33m\]\w\[\e[0m\]\n\\$ "
+
 # ----------------------------------------
 # Path
 # ----------------------------------------
@@ -25,10 +28,24 @@ export PATH="$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$ANDROID_HOME/tools/bin:$JAV
 # tmux setting
 # ----------------------------------------
 
-tmux source "$DOT_FILES/.tmux.conf"
-if [ $SHLVL = 1 ]; then
-  tmux
-fi
+case $(uname -o | tr '[:upper:]' '[:lower:]') in
+  linux*)
+    ;;
+  darwin*) # MacOS
+    tmux source "$DOT_FILES/.tmux.conf"
+    if [ $SHLVL = 1 ]; then
+      tmux
+    fi
+    ;;
+  msys*) # Windows
+    tmux source "$DOT_FILES/.tmux.conf"
+    if [ $SHLVL = 1 ]; then
+      tmux
+    fi
+    ;;
+  *)
+    ;;
+esac
 
 # ----------------------------------------
 # Command Alias
