@@ -33,15 +33,11 @@ case $(uname -o | tr '[:upper:]' '[:lower:]') in
     ;;
   darwin*) # MacOS
     tmux source "$DOT_FILES/.tmux.conf"
-    if [ $SHLVL = 1 ]; then
-      tmux
-    fi
+    [ $SHLVL = 1 ] && tmux
     ;;
   msys*) # Windows
     tmux source "$DOT_FILES/.tmux.conf"
-    if [ $SHLVL = 1 ]; then
-      tmux
-    fi
+    [ $SHLVL = 1 ] && tmux
     ;;
   *)
     ;;
