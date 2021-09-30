@@ -115,7 +115,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
 Plugin 'airblade/vim-gitgutter'
-Plugin 'cohama/lexima.vim'
+"Plugin 'cohama/lexima.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'dense-analysis/ale'
 Plugin 'neoclide/coc.nvim'
