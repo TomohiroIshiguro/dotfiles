@@ -20,4 +20,5 @@ do
     git submodule init
     git submodule update
   fi
+  git branch
 done
