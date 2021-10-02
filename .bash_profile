@@ -5,7 +5,7 @@ test -f ~/.profile && . ~/.profile
 test -f ~/.bashrc && . ~/.bashrc
 
 # Prompt
-export PS1="\[\e[0;35m\][\h] \$MSYSTEM\[\e[0m\] \[\e[0;33m\]\w\[\e[0m\]\n\\$ "
+export PS1="\[\e[0;35m\]\u@\h\[\e[0m\]:\[\e[0;33m\]\w\[\e[0m\]\n\\$ "
 
 # ----------------------------------------
 # Path
