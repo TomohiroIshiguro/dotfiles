@@ -1,0 +1,132 @@
+{
+  //==============================
+  // VSCode
+  //==============================
+
+  // 表示
+  //------------------------------
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.tabSizing": "shrink",
+
+  "workbench.startupEditor": "readme",
+
+  // 操作
+  //------------------------------
+
+  //==============================
+  // Text editor
+  //==============================
+  "window.zoomLevel": -1,
+  "explorer.incrementalNaming": "smart",
+
+  // 画面表示
+  //------------------------------
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  // 行の折り返し表示
+  "editor.wordWrap": "on",
+  // 行の折りたたみ記号
+  "editor.showFoldingControls": "always",
+  // ミニマップ
+  "editor.minimap.maxColumn": 60,
+  "editor.minimap.side": "right",
+  "editor.minimap.size": "fit",
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.renderCharacters": false,
+
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true
+  },
+
+  // サイドバー
+  "files.exclude": {
+    // 検索対象から外すファイル・ディレクトリのパスのパターン
+    "**/node_modules": true,
+    "**/.git": true
+  },
+
+  // 検索ビュー
+  "search.exclude": {
+    // 検索対象から外すファイル・ディレクトリのパスのパターン
+    "**/node_modules": true,
+    "**/.git": true
+  },
+  "search.showLineNumbers": true,
+
+  // テキスト編集
+  //------------------------------
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // 単語の区切り文字
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?　、。！？「」【】『』（）",
+  // タブサイズ
+  "editor.tabSize": 2,
+  // 自動フォーマット
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  // テキストコピー時に書式設定を含める
+  "editor.copyWithSyntaxHighlighting": false,
+  // ドラッグアンドドロップで選択範囲のテキストを移動
+  "editor.dragAndDrop": false,
+
+  // 改行コードの規定値
+  "files.eol": "\n",
+  // ファイル保存時に各行の末尾にある半角スペースを削除
+  "files.trimTrailingWhitespace": true,
+  // ファイル保存時に行末に改行を挿入
+  "files.insertFinalNewline": true,
+
+  "[markdown]": {
+    // ファイル保存時に各行の末尾にある半角スペースを削除
+    "files.trimTrailingWhitespace": false
+  },
+
+  // コーディング
+  //------------------------------
+  // Javascript(Typescript) settings
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    "tslint.json": "jsonc"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Go-lang settings
+  "go.gopath": "C:\\Users\\Tomohiro Ishiguro\\go\\bin",
+  "gopls": { "build.experimentalWorkspaceModule": true },
+  "go.useLanguageServer": false,
+  "go.formatTool": "goimports",
+  "go.lintTool": "golangci-lint",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "go.lintFlags": ["--fast"],
+  "go.delveConfig": {
+    "debugAdapter": "legacy"
+  },
+
+  // デバッグ
+  // ------------------------------
+  "debug.internalConsoleOptions": "openOnSessionStart",
+  "debug.openDebug": "openOnSessionStart",
+
+  // デバッグ中に行内に変数値を表示
+  "debug.inlineValues": true,
+
+  //==============================
+  // Terminal
+  //==============================
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+  // ターミナルで選択したテキストをクリップボードにコピー
+  "terminal.integrated.copyOnSelection": true
+
+  //==============================
+  // VSCode機能拡張
+  //==============================
+}

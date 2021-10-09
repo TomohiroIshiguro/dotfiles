@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "./"
+		}
+	],
+	"settings": {
+		"markdown-pdf.format": "A4",
+		"markdown-pdf.margin.top": "2cm",
+		"markdown-pdf.margin.bottom": "2cm",
+	    "markdown-pdf.orientation": "portlait", // 縦向き印刷
+	//    "markdown-pdf.orientation": "landscape", // 横向き印刷
+		"markdown-pdf.styles": [
+		  "./.css/md_ja.css"
+		],
+		"markdown-pdf.displayHeaderFooter": true,
+		"markdown-pdf.headerTemplate":
+		  "<div id=\"header_area\" class=\"header_footer_font\"><div id=\"tech_research\">株式会社 UETOMAE | <span class='title'></span></div><div id=\"confidential\">Confidential</div></div><style>#header_area{position: relative; border-bottom: 1px solid black; margin: 0.5cm; width: 100%;} #tech_research{position: absolute; left: 0; bottom: 0; font-size:12px;} #confidential{position: absolute; right: 0; bottom: 0; color:red; font-size:12px;}</style>",
+		"markdown-pdf.footerTemplate":
+		  "<div id=\"footer_area\" class=\"header_footer_font\"><div id=\"page_number\"><span class='pageNumber'></span> / <span class='totalPages'></span></div><div id=\"copyright\">(c) 2018- UETOMAE Co., Ltd.</div></div><style>#footer_area{position: relative; border-top: 1px solid black; margin: 0.5cm; width: 100%;} #page_number{position: absolute; top: 0.2cm; text-align: center; width: 100%;} #copyright{position: absolute; right: 0; top: 0.2cm;} .header_footer_font{font-family: '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif; font-size: 9px;}</style>",
+	}
+}

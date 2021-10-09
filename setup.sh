@@ -54,6 +54,7 @@ case $(uname -o | tr '[:upper:]' '[:lower:]') in
   darwin*)
     ;;
   msys*)
+    bash ./.vscode/links.sh
     ;;
   *)
     ;;

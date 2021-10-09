@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+:root {
+  --head-font-color:#1aa1e4;
+  --tr-head-width:3em;
+  --code-border-color:#0F2487;
+}
+
+/* -------------------- *
+ * 文書全体 のスタイル
+ * -------------------- */
+
+html,
+body {
+  background-color:var(--main-bg-color);
+  color:var(--main-font-color);
+}
+
+/* 改ページ */
+h2 {page-break-before:always;}
+hr {height:0; page-break-after:always;}
+
+/* 更新日のスタイル */
+.update_date {text-align:right;}
+
+/* 資料末尾 */
+body:after {
+	float:right;
+	content:"以上";
+}
+
+/* -------------------- *
+ * 見出し のスタイル
+ * -------------------- */
+
+/* h1は資料自体のタイトルとして使用する、h2以降に */
+
+/* 章番号 */
+h1 {counter-reset:chapter;}
+h2 {counter-increment:chapter; counter-reset:section;}
+h3 {counter-increment:section;}
+h2:before {content:counter(chapter)". ";}
+h3:before {content:counter(chapter)"-"counter(section)". ";}
+
+/* フォント */
+h1,h2,h3 {color:var(--head-font-color);margin-top:0;}
+
+h1 {
+  background-color:var(--head-font-color);
+  color:white;
+  line-height:1.2em;
+  margin-right:-8px;
+  margin-left:-8px;
+  padding:8px;
+}
+h2 {
+  font-size:2em;
+  position:relative;
+  line-height:1.2em;
+  padding-bottom:0.1em;
+  border-bottom:2px solid var(--head-font-color);
+  border-left:8px solid var(--head-font-color);
+  padding-left:10px;
+}
+h3,h4 {text-decoration: underline;}
+
+/* -------------------- *
+ * 画像 のスタイル
+ * -------------------- */
+
+img, .drop_shadow {
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.4));
+  margin-bottom:3px;
+}
+img, .white_frame {
+  background-color:white;
+  padding:20px 10px;
+  margin:0 5px 10px;
+}
+
+img {
+  width: 95%;
+}
+
+/* -------------------- *
+ * テーブル のスタイル
+ * -------------------- */
+
+table {
+  width:100%;
+  margin-bottom: 2em;
+}
+th { color:var(--head-font-color); }
+tr>td:first-child {
+  width:var(--tr-head-width);
+}
+th,td {
+	background-color:var(--main-bg-color);
+	color:var(--main-font-color);
+  border: 0;
+	border-bottom: 1px solid black;
+}
+
+/* -------------------- *
+ * コードエリア のスタイル
+ * -------------------- */
+
+pre {
+  background-color:var(--code-bg-color);
+  color:var(--code-font-color);
+  border-left:2px solid var(--code-border-color);
+}
+
+/* -------------------- *
+ * 水平線 のスタイル
+ * -------------------- */
+
+hr {
+  visibility:hidden;
+  color:var(--head-font-color);
+}
