@@ -1,6 +1,7 @@
-cocopon.iceberg-theme
 CoenraadS.bracket-pair-colorizer-2
+DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
+dsznajder.es7-react-js-snippets
 esbenp.prettier-vscode
 evilz.vscode-reveal
 formulahendry.terminal
@@ -10,15 +11,21 @@ GitHub.codespaces
 golang.go
 Gruntfuggly.todo-tree
 hediet.vscode-drawio
+lihui.vs-color-picker
+marp-team.marp-vscode
 ms-azuretools.vscode-docker
 ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-ssh
 ms-vscode.vscode-typescript-tslint-plugin
+ms-vsliveshare.vsliveshare
 PKief.material-icon-theme
 redhat.java
 redhat.vscode-yaml
+ryu1kn.partial-diff
 saikou9901.evilinspector
 shardulm94.trailing-spaces
 shengchen.vscode-checkstyle
+TakumiI.markdowntable
 tomoki1207.pdf
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
@@ -27,3 +34,4 @@ vscjava.vscode-java-test
 vscjava.vscode-maven
 vscodevim.vim
 yzane.markdown-pdf
+yzhang.markdown-all-in-one
