@@ -55,6 +55,10 @@
   },
   "search.showLineNumbers": true,
 
+  // プレビュー表示
+  //------------------------------
+  "workbench.editor.enablePreview": false,
+
   // テキスト編集
   //------------------------------
   "editor.suggestSelection": "first",
