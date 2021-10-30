@@ -2,6 +2,7 @@ CoenraadS.bracket-pair-colorizer-2
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 dsznajder.es7-react-js-snippets
+eamodio.gitlens
 esbenp.prettier-vscode
 evilz.vscode-reveal
 formulahendry.terminal
@@ -21,6 +22,7 @@ ms-vsliveshare.vsliveshare
 PKief.material-icon-theme
 redhat.java
 redhat.vscode-yaml
+ritwickdey.LiveServer
 ryu1kn.partial-diff
 saikou9901.evilinspector
 shardulm94.trailing-spaces
