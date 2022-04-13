@@ -32,6 +32,9 @@ done
 
 mkdir -p "$HOME/.vim/undo"
 
+git config --global core.pager "LESSCHARSET=utf-8 less"
+git config --global core.quotepath false
+
 # Git submodule
 git submodule init
 git submodule update
@@ -40,9 +43,7 @@ git submodule update
 vim +PluginInstall +qall
 
 mkdir -p "$HOME/.vim/colors"
-[ ! -e "$HOME/.vim/colors/iceberg.vim" ] && ln -s "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
-[ ! -e "$HOME/.vim/ftdetect" ] && ln -s "$HOME/$DOT/.vim/ftdetect" "$HOME/.vim"
-[ ! -e "$HOME/.vim/template" ] && ln -s "$HOME/$DOT/.vim/template" "$HOME/.vim"
+[ ! -e "$HOME/.vim/colors/iceberg.vim" ] && ln -s -r "$HOME/$DOT/.vim/iceberg.vim/colors/iceberg.vim" "$HOME/.vim/colors/"
 
 # ----------------------------------------
 #  set up in each os.

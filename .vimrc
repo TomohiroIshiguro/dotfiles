@@ -115,15 +115,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'cohama/lexima.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'dense-analysis/ale'
-Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
-Plugin 'mattn/sonictemplate-vim'
-"Plugin 'dart-lang/dart-vim-plugin'
-"Plugin 'thosakwe/vim-flutter'
 
 call vundle#end()
 
@@ -210,21 +205,3 @@ let g:airline#extensions#ale#show_line_numbers = 1
 let g:airline#extensions#ale#open_lnum_symbol = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
 
-" coc-nvim
-let g:coc_disable_startup_warning = 1
-imap <C-;> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<C-n>'
-let g:coc_snippet_prev = '<C-p>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" -- status bar
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = 'E:'
-let airline#extensions#coc#warning_symbol = 'W:'
-
-" mattn/sonictemplate
-let g:sonictemplate_vim_template_dir = ['~/.vim/template']
-
-"" dart-vim-plugins
-"let g:dart_format_on_save = 1
-"let g:flutter_hot_reload_on_save = 1
