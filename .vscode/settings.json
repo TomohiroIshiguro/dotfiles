@@ -128,7 +128,10 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
 
   // ターミナルで選択したテキストをクリップボードにコピー
-  "terminal.integrated.copyOnSelection": true
+  "terminal.integrated.copyOnSelection": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 
   //==============================
   // VSCode機能拡張
