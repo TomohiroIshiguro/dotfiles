@@ -1,5 +1,6 @@
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
+set -uo pipefail
 
 DIR_ROOT="$(pwd)"
 
