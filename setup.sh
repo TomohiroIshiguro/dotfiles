@@ -50,18 +50,17 @@ mkdir -p "${HOME}/.vim/colors"
 # ----------------------------------------
 
 case $(uname -o | tr '[:upper:]' '[:lower:]') in
-linux*) ;;
-  # Linux
-
-darwin*) ;;
-  # MacOSX
-
-msys*)
-  # Windows
-  bash ./.vscode/links.sh
+linux*) # Linux
+  break
   ;;
-
-*) ;;
-  # Others
-
+darwin*) # MacOSX
+  break
+  ;;
+msys*) # Windows
+  bash ./.vscode/links.sh
+  break
+  ;;
+*) # Others
+  break
+  ;;
 esac
