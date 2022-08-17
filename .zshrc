@@ -51,20 +51,16 @@ setopt no_flow_control
 # tmux setting
 # ----------------------------------------
 
-case $(uname -o | tr '[:upper:]' '[:lower:]') in
-linux*)
-  break
-  ;;
-darwin*) # MacOS
-  tmux source "${DOT_FILES}/.tmux.conf"
-  tmux
-  break
-  ;;
-msys*) # Windows
-  break
-  ;;
-*)
-  break
-  ;;
-esac
+tmux source "${DOT_FILES}/.tmux.conf"
+tmux
+
+# ----------------------------------------
+# Command Alias
+# ----------------------------------------
+
+# shell script
+alias update="sh '${DOT_FILES}/commands/update.sh'"
+
+# tmux
+alias ide="sh '${DOT_FILES}/commands/ide.sh'"
 

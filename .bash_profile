@@ -48,3 +48,4 @@ alias update="sh '${DOT_FILES}/commands/update.sh'"
 
 # tmux
 alias ide="sh '${DOT_FILES}/commands/ide.sh'"
+
