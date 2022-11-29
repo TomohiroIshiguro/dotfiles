@@ -119,6 +119,13 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'dense-analysis/ale'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
+Plugin 'mattn/vim-goimports'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'dgryski/vim-godef'
+Plugin 'tpope/vim-sensible'
+Plugin 'natebosch/vim-lsc'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call vundle#end()
 
@@ -164,16 +171,20 @@ let g:airline#extensions#tabline#buffer_idx_format = {
 
 " w0rp/ale
 " -- Linting
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_linters = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'javascript': ['eslint'],
-      \ 'go': ['gopls'],
+      \ 'go': ['gopls', 'revive', 'vet'],
       \ }
 " -- Fixing
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \ 'javascript': ['prettier','eslint'],
+      \ 'html': ['prettier'],
+      \ 'css': ['prettier'],
       \ }
 " -- Completion
 let g:ale_completion_enabled = 1
@@ -204,4 +215,23 @@ let g:airline#extensions#ale#warning_symbol = 'W:'
 let g:airline#extensions#ale#show_line_numbers = 1
 let g:airline#extensions#ale#open_lnum_symbol = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
+
+let g:goimports = 1
+let g:go_fmt_command = "goimports"
+let g:SuperTabDefaultCompletionType = "context"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:syntastic_mode_map = {
+\ "mode" : "active",
+\ "active_filetypes" : ["go"],
+\}
+let g:go_version_warning = 0
+let g:go_def_mode = 'godef'
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_go_checkers = ['govet']
 
