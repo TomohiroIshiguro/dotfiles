@@ -1,5 +1,8 @@
 [blame]
 	coloring = highlightRecent
 [user]
-	name = Tomohiro.Ishiguro
+	name = Tomohiro Ishiguro
 	email = se.ishiguro.tomohiro@gmail.com
+[credential]
+	helper = store
+	helper = store

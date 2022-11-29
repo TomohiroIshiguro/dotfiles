@@ -15,7 +15,7 @@ HISTSIZE=100000             # メモリ上に保存する履歴のサイズ
 SAVEHIST=1000000            # 上述のファイルに保存する履歴のサイズ
 
 # share .zshhistory
-setopt inc_append_history   # 実行時に履歴をファイルにに追加していく
+setopt inc_append_history   # 実行時に履歴をファイルに追加していく
 setopt share_history        # 履歴を他のシェルとリアルタイム共有する
 
 # ----------------------------------------
@@ -31,7 +31,6 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:
 ### 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%F{blue}%d%f%b'
 zstyle ':completion:*' group-name ''
-
 
 ### 補完侯補をメニューから選択する。
 ### select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する。
@@ -63,4 +62,3 @@ alias update="sh '${DOT_FILES}/commands/update.sh'"
 
 # tmux
 alias ide="sh '${DOT_FILES}/commands/ide.sh'"
-
