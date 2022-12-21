@@ -126,6 +126,7 @@ Plugin 'dgryski/vim-godef'
 Plugin 'tpope/vim-sensible'
 Plugin 'natebosch/vim-lsc'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
@@ -168,6 +169,15 @@ let g:airline#extensions#tabline#buffer_idx_format = {
   \ '8': '8 ',
   \ '9': '9 '
   \}
+
+" nathanaelkane/vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 2
+
+"let g:indent_guides_auto_colors = 0
+"hi IndentGuidesOdd  guibg=green ctermbg=5
+"hi IndentGuidesEven guibg=red ctermbg=4
 
 " w0rp/ale
 " -- Linting
