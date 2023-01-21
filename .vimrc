@@ -4,17 +4,26 @@ set fileformats=unix,dos,mac
 set wildmenu
 set belloff=all
 
+"" Leader をスペースに変更
+let mapleader = "\<Space>"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+
 "------------------------------
 " 表示設定
 "------------------------------
 
-filetype plugin indent on
-syntax on
-
+"" Select color theme.
 set t_Co=256
 "colorscheme iceberg
 colorscheme desert
 
+"" Enable Syntax highlight, indexes, plugins for each file type.
+filetype plugin indent on
+syntax on
+
+"" Show/Hide row number
 set number
 function! NumberToggle()
   if(&rnu == 1)
@@ -33,30 +42,36 @@ nnoremap <C-l> :call NumberToggle()<cr>
 " 画面操作
 "------------------------------
 
-" Split window
+"" Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
-" Move window
+
+"" Move between windows
 nmap <Space> <C-w>w
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
 map sh <C-w>h
-map sk <C-w>k
 map sj <C-w>j
+map sk <C-w>k
 map sl <C-w>l
-" Resize window
+map s<left> <C-w>h
+map s<down> <C-w>j
+map s<up> <C-w>k
+map s<right> <C-w>l
+
+"" Resize window
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
 
+"" Go next/previous file in plural files.
+nmap gn :next<Return>
+nmap gp :previous<Return>
+
 "------------------------------
 " エディタ設定
 "------------------------------
 
-" バックアップ / Undo
+"" Backup files / Undo
 set nobackup
 set nowritebackup
 
@@ -68,14 +83,14 @@ endif
 
 set updatetime=300
 
-" バッファ
+"" バッファ
 set hidden
 autocmd BufWritePre * :%s/\s\+$//ge
 
-" ヤンク / クリップボード
+"" Yank / Clipboard
 set clipboard+=unnamed
 
-" インデント
+"" Indent
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -85,12 +100,10 @@ set smartindent
 
 let loaded_matchparen = 1
 
-" 変換候補の最大表示数
+"" 変換候補の最大表示数
 set pumheight=10
 
 set shortmess+=c
-
-"set cmdheight=2
 
 "------------------------------
 " 検索設定
@@ -101,43 +114,49 @@ set smartcase
 set wrapscan
 set incsearch
 set hlsearch
+
+"" reset search keyword highlight
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "------------------------------
-" Vundle - manage plugins
+" Plugins
+" * Vundle - manage plugins
 "------------------------------
 set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 "---
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cocopon/iceberg.vim' "theme
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sheerun/vim-polyglot'
+"--
 Plugin 'dense-analysis/ale'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
+"--
 Plugin 'mattn/vim-goimports'
-Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'dgryski/vim-godef'
 Plugin 'tpope/vim-sensible'
 Plugin 'natebosch/vim-lsc'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
-" scrooloose/nerdtree
+"" scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeShowHidden=1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" vim-airline/vim-airline-themes
-" -- status bar
+"" vim-airline/vim-airline-themes
+""" status bar
 set laststatus=2
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 let g:airline_section_a = airline#section#create(['mode', 'crypt'])
@@ -150,66 +169,52 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#wordcount#enabled = 0
-" -- tab line
+
+""" tab line
 set showtabline=2
 let g:airline#extensions#tabline#enabled = 1
 nmap <C-p> :bp<CR>
 nmap <C-n> :bn<CR>
 nmap <C-d> :bd<CR>
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#buffer_idx_format = {
-  \ '0': '0 ',
-  \ '1': '1 ',
-  \ '2': '2 ',
-  \ '3': '3 ',
-  \ '4': '4 ',
-  \ '5': '5 ',
-  \ '6': '6 ',
-  \ '7': '7 ',
-  \ '8': '8 ',
-  \ '9': '9 '
-  \}
+let g:airline#extensions#tabline#buffer_idx_format = { '0': '0 ', '1': '1 ', '2': '2 ', '3': '3 ', '4': '4 ', '5': '5 ', '6': '6 ', '7': '7 ', '8': '8 ', '9': '9 '}
 
-" nathanaelkane/vim-indent-guides
+"" nathanaelkane/vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 2
 
-"let g:indent_guides_auto_colors = 0
-"hi IndentGuidesOdd  guibg=green ctermbg=5
-"hi IndentGuidesEven guibg=red ctermbg=4
-
-" w0rp/ale
-" -- Linting
+"" w0rp/ale
+""" Linting
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-let g:ale_linters = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'javascript': ['eslint'],
-      \ 'go': ['gopls', 'revive', 'vet'],
-      \ }
-" -- Fixing
+let g:ale_linters = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['eslint'], 'go': ['gopls', 'revive', 'vet'], }
+
+""" Fixing
 let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-      \ 'javascript': ['prettier','eslint'],
-      \ 'html': ['prettier'],
-      \ 'css': ['prettier'],
-      \ }
-" -- Completion
+let g:ale_fixers = { 'javascript': ['prettier','eslint'], 'html': ['prettier'], 'css': ['prettier'], }
+
+""" Completion
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
-" -- Go To Definition
+
+""" Go To Definition
 " :ALEGoToDefinition
-" -- Find Refetences
+
+""" Find Refetences
 " :FLEFindReferences
-" -- Hovering
-" -- Symbol Search
+
+""" Hovering
+
+""" Symbol Search
 " :ALESymbolSearch
-" -- Refactoring: Rename, Actions
+
+""" Refactoring: Rename, Actions
 " :ALERename
 " :ALECodeAction
-" -- 表示に関する設定
+
+""" 表示に関する設定
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
@@ -218,13 +223,15 @@ highlight link ALEErrorSign Tag
 highlight link ALEWarningSign StorageClass
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-" -- status bar
+
+""" status bar
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ale#error_symbol = 'E:'
 let g:airline#extensions#ale#warning_symbol = 'W:'
 let g:airline#extensions#ale#show_line_numbers = 1
 let g:airline#extensions#ale#open_lnum_symbol = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
+
 
 let g:goimports = 1
 let g:go_fmt_command = "goimports"
@@ -236,12 +243,8 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:syntastic_mode_map = {
-\ "mode" : "active",
-\ "active_filetypes" : ["go"],
-\}
+let g:syntastic_mode_map = { "mode" : "active", "active_filetypes" : ["go"],}
 let g:go_version_warning = 0
 let g:go_def_mode = 'godef'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_go_checkers = ['govet']
-

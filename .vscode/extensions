@@ -20,7 +20,6 @@ ms-vscode-remote.remote-ssh
 ms-vscode.vscode-typescript-tslint-plugin
 ms-vsliveshare.vsliveshare
 PKief.material-icon-theme
-redhat.java
 redhat.vscode-yaml
 ritwickdey.LiveServer
 ryu1kn.partial-diff
@@ -29,11 +28,6 @@ shardulm94.trailing-spaces
 shengchen.vscode-checkstyle
 TakumiI.markdowntable
 tomoki1207.pdf
-vscjava.vscode-java-debug
-vscjava.vscode-java-dependency
-vscjava.vscode-java-pack
-vscjava.vscode-java-test
-vscjava.vscode-maven
 vscodevim.vim
 yzane.markdown-pdf
 yzhang.markdown-all-in-one

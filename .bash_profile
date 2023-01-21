@@ -18,12 +18,6 @@ export PATH="${PATH}:${DOT_FILES}"
 # ----------------------------------------
 
 case $(uname -o | tr '[:upper:]' '[:lower:]') in
-linux*) # Linux
-  break
-  ;;
-darwin*) # MacOS
-  break
-  ;;
 msys*) # Windows
   tmux source "${DOT_FILES}/.tmux.conf"
   [ $SHLVL = 1 ] && tmux

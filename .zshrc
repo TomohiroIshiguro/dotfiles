@@ -59,6 +59,7 @@ tmux
 
 # shell script
 alias update="sh '${DOT_FILES}/commands/update.sh'"
+alias grep="grep --color=auto"
 
 # tmux
 alias ide="sh '${DOT_FILES}/commands/ide.sh'"
