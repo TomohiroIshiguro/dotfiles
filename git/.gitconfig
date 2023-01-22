@@ -6,3 +6,6 @@
 [credential]
 	helper = store
 	helper = store
+[core]
+	pager = LESSCHARSET=utf-8 less
+	quotepath = false

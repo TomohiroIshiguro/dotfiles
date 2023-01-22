@@ -248,3 +248,4 @@ let g:go_version_warning = 0
 let g:go_def_mode = 'godef'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_go_checkers = ['govet']
+
