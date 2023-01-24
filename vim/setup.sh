@@ -12,7 +12,6 @@ for file in .??*; do
   [ -d "${file}" ] && continue
   # 特定のファイルはスキップする
   [ "${file}" = ".DS_Store" ] && continue
-  [ "${file}" = ".gitignore" ] && continue
   [ "${file}" = ".gitmodules" ] && continue
   # これ以降。設定ファイルのシンボリックリンクを作る
   if [ -e "${HOME}/${file}" ]; then
@@ -27,9 +26,6 @@ done
 
 mkdir -p "${HOME}/.vim/undo"
 
-git config --global core.pager "LESSCHARSET=utf-8 less"
-git config --global core.quotepath false
-
 # Git submodule
 git submodule init
 git submodule update
@@ -37,6 +33,7 @@ git submodule update
 # install Vim plugins
 vim +PluginInstall +qall
 
+# link vim color theme
 mkdir -p "${HOME}/.vim/colors"
 [ ! -e "${HOME}/.vim/colors/iceberg.vim" ] && \
-  ln -s "${CURDIR}/.vim/iceberg.vim/colors/iceberg.vim" "${HOME}/.vim/colors/"
+  ln -s "${1}/.vim/iceberg.vim/colors/iceberg.vim" "${HOME}/.vim/colors/"
