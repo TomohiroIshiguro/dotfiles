@@ -22,3 +22,5 @@ for file in .??*; do
   ln -s "${CURDIR}/${file}" "${HOME}/${file}"
   echo "[Info] Generated: ${file}"
 done
+
+echo "Done setting up tmux."

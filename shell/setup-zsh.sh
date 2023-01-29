@@ -16,3 +16,5 @@ if [ -e "${HOME}/${FILE}" ]; then
 fi
 ln -s "${CURDIR}/${FILE}" "${HOME}/${FILE}"
 echo "[Info] Generated: ${FILE}"
+
+echo "Done setting up zsh."

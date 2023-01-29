@@ -22,3 +22,5 @@ if [ -e "${HOME}/${file}" ]; then
   ln -s "${CURDIR}/${file}" "${HOME}/${file}"
   echo "[Info] Generated: ${file}"
 done
+
+echo "Done setting up git."

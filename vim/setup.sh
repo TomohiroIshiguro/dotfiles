@@ -37,3 +37,5 @@ vim +PluginInstall +qall
 mkdir -p "${HOME}/.vim/colors"
 [ ! -e "${HOME}/.vim/colors/iceberg.vim" ] && \
   ln -s "${1}/.vim/iceberg.vim/colors/iceberg.vim" "${HOME}/.vim/colors/"
+
+echo "Done setting up vim."

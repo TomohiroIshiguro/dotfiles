@@ -33,3 +33,5 @@ brew install kindle #CASK
 brew install slack #CASK
 
 brew list
+
+echo "Done installing apps."
