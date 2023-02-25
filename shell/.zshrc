@@ -3,7 +3,7 @@ DOT_FILES="${HOME}/dotfiles"
 export PATH="${PATH}:${DOT_FILES}"
 
 # tmux
-tmux source "${DOT_FILES}/.tmux.conf"
+tmux source "${HOME}/.tmux.conf"
 tmux
 
 # Alias
