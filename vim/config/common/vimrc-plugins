@@ -1,7 +1,3 @@
-"------------------------------
-" Plugins
-" * Vundle - manage plugins
-"------------------------------
 set rtp+=~/dotfiles/.vim/Vundle.vim
 call vundle#begin()
 

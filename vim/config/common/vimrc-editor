@@ -1,8 +1,4 @@
-"------------------------------
-" エディタ設定
-"------------------------------
-
-"" Backup files / Undo
+" Backup files / Undo
 set nobackup
 set nowritebackup
 
@@ -14,14 +10,14 @@ endif
 
 set updatetime=300
 
-"" バッファ
+" バッファ
 set hidden
 autocmd BufWritePre * :%s/\s\+$//ge
 
-"" Yank / Clipboard
+" Yank / Clipboard
 set clipboard+=unnamed
 
-"" Indent
+" Indent
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -31,7 +27,7 @@ set smartindent
 
 let loaded_matchparen = 1
 
-"" 変換候補の最大表示数
+" 変換候補の最大表示数
 set pumheight=10
 
 set shortmess+=c
