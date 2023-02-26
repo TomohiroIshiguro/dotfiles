@@ -1,3 +1,6 @@
+" 文字コード
+set fileencoding=utf-8
+
 " Backup files / Undo
 set nobackup
 set nowritebackup
