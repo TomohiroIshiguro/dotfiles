@@ -1,0 +1,81 @@
+set fileencodings=utf-8,sjis,euc-jp
+set fileformats=unix,dos,mac
+
+set wildmenu
+set belloff=all
+
+"" Leader をスペースに変更
+let mapleader = "\<Space>"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+
+"------------------------------
+" 表示設定
+"------------------------------
+
+"" Select color theme.
+set t_Co=256
+"colorscheme iceberg
+colorscheme desert
+
+"" Enable Syntax highlight, indexes, plugins for each file type.
+filetype plugin indent on
+syntax on
+
+"" Show/Hide row number
+set number
+function! NumberToggle()
+  if(&rnu == 1)
+    set nornu
+    set nocursorline
+    set nocursorcolumn
+  else
+    set rnu
+    set cursorline
+    set cursorcolumn
+  endif
+endfunc
+nnoremap <C-l> :call NumberToggle()<cr>
+
+"------------------------------
+" 画面操作
+"------------------------------
+
+"" Split window
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+
+"" Move between windows
+nmap <Space> <C-w>w
+map sh <C-w>h
+map sj <C-w>j
+map sk <C-w>k
+map sl <C-w>l
+map s<left> <C-w>h
+map s<down> <C-w>j
+map s<up> <C-w>k
+map s<right> <C-w>l
+
+"" Resize window
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+"" Go next/previous file in plural files.
+nmap gn :next<Return>
+nmap gp :previous<Return>
+
+"------------------------------
+" 検索設定
+"------------------------------
+
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set hlsearch
+
+"" reset search keyword highlight
+nmap <Esc><Esc> :nohlsearch<CR><Esc>

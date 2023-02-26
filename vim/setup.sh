@@ -7,6 +7,9 @@ CURDIR="$(pwd)/${DIR}"
 echo ${CURDIR}
 cd ${CURDIR}
 
+# vim undo history settings
+mkdir -p "${HOME}/.vim/undo"
+
 # make symbolic links
 for file in .??*; do
   # ディレクトリはスキップする
@@ -25,7 +28,8 @@ for file in .??*; do
   echo "[Info] Generated: ${file}"
 done
 
-mkdir -p "${HOME}/.vim/undo"
+[ ! -e "${HOME}/.vim/config" ] && \
+  ln -s "${CURDIR}/config" "${HOME}/.vim"
 
 # Git submodule
 git submodule init

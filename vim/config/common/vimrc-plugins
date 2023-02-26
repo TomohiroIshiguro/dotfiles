@@ -1,0 +1,30 @@
+"------------------------------
+" Plugins
+" * Vundle - manage plugins
+"------------------------------
+set rtp+=~/dotfiles/.vim/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+"---
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'cocopon/iceberg.vim' "theme
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ervandew/supertab'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'sheerun/vim-polyglot'
+
+Plugin 'dense-analysis/ale'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
+
+Plugin 'mattn/vim-goimports'
+Plugin 'scrooloose/syntastic'
+Plugin 'dgryski/vim-godef'
+Plugin 'tpope/vim-sensible'
+Plugin 'natebosch/vim-lsc'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+call vundle#end()
