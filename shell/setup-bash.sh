@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DIR=shell
-CURDIR="${1}/${DIR}"
+CURDIR="$(pwd)/${DIR}"
 
 echo ${CURDIR}
 cd ${CURDIR}

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DIR=tmux
-CURDIR="${1}/${DIR}"
+CURDIR="$(pwd)/${DIR}"
 
 echo ${CURDIR}
 cd ${CURDIR}
