@@ -1,25 +1,23 @@
-CURDIR="$(PWD)"
-
 help:
 	cat Makefile
 
 setup-mac:
-	sh ${CURDIR}/shell/setup-zsh.sh ${CURDIR}
-	sh ${CURDIR}/apps/install-in-mac.sh ${CURDIR}
-	sh ${CURDIR}/git/setup.sh ${CURDIR}
-	sh ${CURDIR}/vim/setup.sh ${CURDIR}
-	sh ${CURDIR}/tmux/setup.sh ${CURDIR}
+	sh shell/setup-zsh.sh $(PWD)
+	sh apps/install-in-mac.sh $(PWD)
+	sh git/setup.sh $(PWD)
+	sh vim/setup.sh $(PWD)
+	sh tmux/setup.sh $(PWD)
 	#vscode
 
 setup-windows:
-	sh ${CURDIR}/shell/setup-bash.sh ${CURDIR}
-	sh ${CURDIR}/apps/install-in-windows.sh ${CURDIR}
-	sh ${CURDIR}/git/setup.sh ${CURDIR}
-	sh ${CURDIR}/vim/setup.sh ${CURDIR}
-	sh ${CURDIR}/tmux/setup.sh ${CURDIR}
+	sh shell/setup-bash.sh $(PWD)
+	sh apps/install-in-windows.sh $(PWD)
+	sh git/setup.sh $(PWD)
+	sh vim/setup.sh $(PWD)
+	sh tmux/setup.sh $(PWD)
 	#vscode
 
 setup-linux:
-	sh ${CURDIR}/shell/setup-bash.sh ${CURDIR}
-	sh ${CURDIR}/git/setup.sh ${CURDIR}
-	sh ${CURDIR}/vim/setup.sh ${CURDIR}
+	sh shell/setup-bash.sh $(PWD)
+	sh git/setup.sh $(PWD)
+	sh vim/setup.sh $(PWD)

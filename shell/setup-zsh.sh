@@ -4,6 +4,7 @@ set -euo pipefail
 DIR=shell
 CURDIR="${1}/${DIR}"
 
+echo ${CURDIR}
 cd ${CURDIR}
 
 FILE=.zshrc

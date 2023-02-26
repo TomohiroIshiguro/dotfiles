@@ -4,6 +4,7 @@ set -euo pipefail
 DIR=vim
 CURDIR="${1}/${DIR}"
 
+echo ${CURDIR}
 cd ${CURDIR}
 
 # make symbolic links
