@@ -1,10 +1,12 @@
-# 設定ファイルをGithubで管理する
+# アプリのインストールと設定ファイルをGithubで管理する
 
-Githubで設定ファイルを管理することによって、ファイルの復元と版管理が容易になる。
+Githubでアプリのインストールと設定ファイルを管理することによって、アプリのインストール、作業環境ファイルの復元と版管理が容易になる。
 異なる端末/仮想環境に移動しても普段の作業環境を容易に再現できるメリットがある。
 
 ## 対象ツール
 
+- CLI ツール
+- GUI ツール
 - shell
 - vim
 - tmux
@@ -14,7 +16,8 @@ Githubで設定ファイルを管理することによって、ファイルの�
 1. 端末/仮想環境で、dotfilesリポジトリをcloneする
    `$ git clone https://github.com/TomohiroIshiguro/dotfiles.git ~`
 
-1. ~/dotfiles/setup.shを実行する
+2. `$ make setup-{OS}` を実行する
+   - アプリケーションをインストール
    - 各設定ファイルのシンボリックリンクを作成
    - git submoduleでVundleをインストール
    - Vundleの機能で Vimのプラグインをインストールする
