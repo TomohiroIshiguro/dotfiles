@@ -37,6 +37,6 @@ vim +PluginInstall +qall
 # link vim color theme
 mkdir -p "${HOME}/.vim/colors"
 [ ! -e "${HOME}/.vim/colors/iceberg.vim" ] && \
-  ln -s "${1}/.vim/iceberg.vim/colors/iceberg.vim" "${HOME}/.vim/colors/"
+  ln -s "$(pwd)/.vim/iceberg.vim/colors/iceberg.vim" "${HOME}/.vim/colors/"
 
 echo "Done setting up vim."
