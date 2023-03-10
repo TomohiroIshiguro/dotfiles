@@ -4,7 +4,7 @@ export PATH="${PATH}:${DOT_FILES}"
 
 # tmux
 tmux source "${HOME}/.tmux.conf"
-tmux
+#tmux
 
 # Alias
 alias grep="grep --color=auto"
