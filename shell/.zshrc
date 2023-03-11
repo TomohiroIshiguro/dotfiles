@@ -1,6 +1,9 @@
 # Path
 DOT_FILES="${HOME}/dotfiles"
-export PATH="${PATH}:${DOT_FILES}"
+export GOPATH=${HOME}/go
+
+export PATH="${PATH}:${DOT_FILES}:${GOPATH}/bin"
+typeset -U path PATH
 
 # tmux
 tmux source "${HOME}/.tmux.conf"

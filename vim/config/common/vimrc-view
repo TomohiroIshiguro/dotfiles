@@ -1,12 +1,6 @@
 set wildmenu
 set belloff=all
 
-" Leader をスペースに変更
-let mapleader = "\<Space>"
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
-
 "------------------------------
 " 表示設定
 "------------------------------

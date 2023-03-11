@@ -6,21 +6,25 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
-Plugin 'cocopon/iceberg.vim' "theme
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ervandew/supertab'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'sheerun/vim-polyglot'
 
+"theme
+Plugin 'cocopon/iceberg.vim'
+
+"viewer
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter'
+
+"editor
 Plugin 'dense-analysis/ale'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
-
-Plugin 'mattn/vim-goimports'
-Plugin 'scrooloose/syntastic'
-Plugin 'dgryski/vim-godef'
-Plugin 'tpope/vim-sensible'
 Plugin 'natebosch/vim-lsc'
-Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
+"- golang
+Plugin 'mattn/vim-goimports'
+Plugin 'dgryski/vim-godef'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
