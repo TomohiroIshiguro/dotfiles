@@ -1,2 +1,7 @@
-nmap nh <Plug>(GitGutterNextHunk)
-nmap ph <Plug>(GitGutterPrevHunk)
+" ============================================================================
+" GITGUTTER NAVIGATION CONFIGURATION
+" ============================================================================
+" Navigate to next git change (hunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+" Navigate to previous git change (hunk)
+nmap [h <Plug>(GitGutterPrevHunk)

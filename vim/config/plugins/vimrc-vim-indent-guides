@@ -1,8 +1,15 @@
+" ============================================================================
+" VIM-INDENT-GUIDES CONFIGURATION
+" ============================================================================
+" Enable indent guides by default when Vim starts
 let g:indent_guides_enable_on_vim_startup = 1
 
+" Set dark background for proper color contrast with indent guides
 set background=dark
 
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 2
+" Configure indent guide appearance
+let g:indent_guides_start_level = 1  " Start showing from first indent level
+let g:indent_guides_guide_size = 2    " Width of the indent guide
 
+" Disable indent guides for specific file types
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']

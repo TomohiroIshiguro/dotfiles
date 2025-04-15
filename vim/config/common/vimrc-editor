@@ -1,36 +1,83 @@
-" 文字コード
+" ============================================================================
+" ENCODING SETTINGS
+" ============================================================================
+" Set file encoding to UTF-8 for cross-platform compatibility
 set fileencoding=utf-8
+set encoding=utf-8
 
-" Backup files / Undo
+" ============================================================================
+" BACKUP AND RECOVERY SETTINGS
+" ============================================================================
+" Disable backup files to avoid cluttering directories
 set nobackup
 set nowritebackup
 
+" Configure persistent undo if available
 if has('persistent_undo')
-  let undo_path = "$HOME/.vim/undo"
-  exe 'set undodir=' .. undo_path
-	set undofile
+  " Create undo directory if it doesn't exist
+  let s:undo_path = expand('~/.vim/undo')
+  if !isdirectory(s:undo_path)
+    silent! call mkdir(s:undo_path, 'p', 0700)
+  endif
+
+  " Set undo directory and enable persistent undo
+  let &undodir = s:undo_path
+  set undofile
 endif
 
+" Reduce updatetime for faster response (default: 4000ms)
+" Affects CursorHold events and swap file writing
 set updatetime=300
 
-" バッファ
+" ============================================================================
+" BUFFER SETTINGS
+" ============================================================================
+" Allow switching between modified buffers without saving
 set hidden
-autocmd BufWritePre * :%s/\s\+$//ge
 
-" Yank / Clipboard
-set clipboard+=unnamed
+" Remove trailing whitespace on save, but only for certain file types
+augroup strip_whitespace
+  autocmd!
+  " Skip binary files, markdown (where trailing spaces have meaning), etc.
+  autocmd BufWritePre *.{vim,js,jsx,ts,tsx,py,c,cpp,h,hpp,java,rb,php,html,css,scss} :%s/\s\+$//e
+augroup END
 
-" Indent
+" ============================================================================
+" CLIPBOARD SETTINGS
+" ============================================================================
+" Integrate with system clipboard for seamless copy/paste
+if has('clipboard')
+  set clipboard=unnamed
+  if has('unnamedplus')  " For Linux systems
+    set clipboard=unnamedplus
+  endif
+endif
+
+" ============================================================================
+" INDENTATION SETTINGS
+" ============================================================================
+" Use spaces instead of tabs
 set expandtab
+" Number of spaces for a tab
 set tabstop=2
+" Number of spaces for indentation commands (>>, <<)
 set shiftwidth=2
+" Number of spaces inserted when pressing Tab
 set softtabstop=2
+" Copy indentation from previous line
 set autoindent
+" Increase/decrease indentation based on code syntax
 set smartindent
 
+" ============================================================================
+" VISUAL SETTINGS
+" ============================================================================
+" Disable automatic parenthesis highlighting for better performance
 let loaded_matchparen = 1
 
-" 変換候補の最大表示数
+" Limit completion menu height to avoid overwhelming the screen
 set pumheight=10
 
+" Make messages shorter to avoid 'press ENTER' prompts
+" c: Don't show ins-completion-menu messages
 set shortmess+=c

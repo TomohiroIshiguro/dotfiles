@@ -1,6 +1,12 @@
+" ============================================================================
+" NERDTREE CONFIGURATION
+" ============================================================================
+" Auto-open NERDTree when Vim starts with no files specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let g:NERDTreeShowHidden=1
+" Show hidden files by default
+let g:NERDTreeShowHidden = 1
 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" Toggle NERDTree with Ctrl+E
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>

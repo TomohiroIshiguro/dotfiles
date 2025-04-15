@@ -1,24 +1,33 @@
-" status bar
-set laststatus=2
+" ============================================================================
+" AIRLINE STATUS BAR CONFIGURATION
+" ============================================================================
+set laststatus=2  " Always show status line
+
+" Define the layout of sections in the status bar
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 
+" Configure status bar sections
 let g:airline_section_a = airline#section#create(['mode', 'crypt'])
 let g:airline_section_b = ''
-let g:airline_section_c = '%t'
+let g:airline_section_c = '%t'  " Show filename only
 
 let g:airline_section_x = '%{&filetype}'
 let g:airline_section_z = '[%l/%L] %v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
 
+" Configure airline extensions
 let g:airline#extensions#branch#vcs_priority = ["git"]
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#wordcount#enabled = 0
 
-" tab line
-set showtabline=2
+" ============================================================================
+" AIRLINE TABLINE CONFIGURATION
+" ============================================================================
+set showtabline=2  " Always show tab line
 let g:airline#extensions#tabline#enabled = 1
 
+" Enable buffer index display in tabline
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
   \ '0': '0 ',
@@ -33,7 +42,12 @@ let g:airline#extensions#tabline#buffer_idx_format = {
   \ '9': '9 ',
   \ }
 
-"タブの移動
+" ============================================================================
+" BUFFER NAVIGATION SHORTCUTS
+" ============================================================================
+" Previous buffer
 nmap <C-p> :bp<CR>
+" Next buffer
 nmap <C-n> :bn<CR>
+" Delete buffer
 nmap <C-d> :bd<CR>

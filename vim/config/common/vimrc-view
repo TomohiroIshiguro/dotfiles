@@ -1,27 +1,35 @@
+" ============================================================================
+" COMMAND LINE SETTINGS
+" ============================================================================
+" Enable enhanced command-line completion
 set wildmenu
+" Disable all bell sounds
 set belloff=all
 
-"------------------------------
-" 表示設定
-"------------------------------
-
-" 文字コード
+" ============================================================================
+" DISPLAY SETTINGS
+" ============================================================================
+" Set character encoding for Vim interface
 set encoding=utf-8
+" Set file encoding detection order
 set fileencodings=utf-8,sjis,euc-jp
-" 改行コード
+" Set line ending format detection order
 set fileformats=unix,dos,mac
 
-" Select color theme.
+" Configure terminal color support
 set t_Co=256
+" Set color scheme
 "colorscheme iceberg
 colorscheme desert
 
-" Enable Syntax highlight, indexes, plugins for each file type.
+" Enable filetype detection and related settings
 filetype plugin indent on
+" Enable syntax highlighting
 syntax on
 
-" Show/Hide row number
+" Show line numbers
 set number
+" Function to toggle between relative and absolute line numbers
 function! NumberToggle()
   if(&rnu == 1)
     set nornu
@@ -33,46 +41,50 @@ function! NumberToggle()
     set cursorcolumn
   endif
 endfunc
+" Map Ctrl+L to toggle line number display mode
 nnoremap <C-l> :call NumberToggle()<cr>
 
-"------------------------------
-" 画面操作
-"------------------------------
+" ============================================================================
+" WINDOW MANAGEMENT
+" ============================================================================
+" Split window mappings
+nnoremap ss :split<Return><C-w>w
+nnoremap sv :vsplit<Return><C-w>w
 
-" Split window
-nmap ss :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
+" Window navigation mappings
+nnoremap <Space> <C-w>w
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap s<left> <C-w>h
+nnoremap s<down> <C-w>j
+nnoremap s<up> <C-w>k
+nnoremap s<right> <C-w>l
 
-" Move between windows
-nmap <Space> <C-w>w
-map sh <C-w>h
-map sj <C-w>j
-map sk <C-w>k
-map sl <C-w>l
-map s<left> <C-w>h
-map s<down> <C-w>j
-map s<up> <C-w>k
-map s<right> <C-w>l
-
-" Resize window
-nnoremap <S-Left>  <C-w><<CR>
+" Window resizing mappings
+nnoremap <S-Left> <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
+nnoremap <S-Up> <C-w>-<CR>
+nnoremap <S-Down> <C-w>+<CR>
 
-" Go next/previous file in plural files.
-nmap gn :next<Return>
-nmap gp :previous<Return>
+" Buffer navigation mappings
+nnoremap gn :bnext<Return>
+nnoremap gp :bprevious<Return>
 
-"------------------------------
-" 検索設定
-"------------------------------
-
+" ============================================================================
+" SEARCH SETTINGS
+" ============================================================================
+" Ignore case in search patterns
 set ignorecase
+" Override ignorecase when pattern contains uppercase
 set smartcase
+" Continue search from end of file
 set wrapscan
+" Show matches as you type
 set incsearch
+" Highlight search results
 set hlsearch
 
-" reset search keyword highlight
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" Clear search highlighting with double Escape
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
